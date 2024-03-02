@@ -1,15 +1,22 @@
-
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/Home';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Profile from './pages/Profile';
+import About from './pages/About';
 function App() {
 
   return (
     <>
-      <div className="p-4">
-        <h1 className="text-8xl text-red-800">hello world</h1>
-        <p className="text-xl text-gray-700">
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home  />}/>
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
