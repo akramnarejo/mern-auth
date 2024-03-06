@@ -12,6 +12,7 @@ export default function SignIn() {
   };
 
   const handleSubmit = async (e) => {
+    // prevents  page refresh on form submit
     e.preventDefault();
     try {
       const res = await fetch('/api/v1/auth/signin', {
