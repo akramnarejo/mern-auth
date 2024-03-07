@@ -9,7 +9,7 @@ const signIn = async (req, res) => {
     const isRegistered = await User.findOne({username})
     const verifyPassword = await bcrypt.compare(password, isRegistered.password)
     if(!verifyPassword){
-      return res.status(401).json('Invalid Password')
+      return res.status(401).json('Invalid username or password')
     }
     console.log(isRegistered)
     const token = jwt.sign({id: isRegistered._id}, process.env.JWT_SECRET, {expiresIn: 60*60})
